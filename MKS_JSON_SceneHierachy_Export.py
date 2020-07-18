@@ -38,6 +38,9 @@ def write_json_object(f, meshes, lights, cams):
 
     scene_object["use_gravity"] = str(scene.use_gravity) 
 
+    scene_object["exporter"]= "MKS Blender JSON Exporter"
+    scene_object["exporter_version"]= "1.0"
+
     json_object["scene"] = scene_object
     
     index = 0
@@ -128,18 +131,19 @@ def write_json_object(f, meshes, lights, cams):
         
             if scene_object.data.type == 'POINT':
                 pass
+            
             elif scene_object.data.type == 'SUN':
                 json_sub_object["angle"] = scene_object.data.angle
+                json_sub_object["shadow_cascade_count"] = scene_object.data.shadow_cascade_count
+                json_sub_object["shadow_cascade_exponent"] = scene_object.data.shadow_cascade_exponent
+                json_sub_object["shadow_cascade_fade"] = scene_object.data. shadow_cascade_fade
+                json_sub_object["shadow_cascade_max_distance"] = scene_object.data.shadow_cascade_max_distance
                 
             elif scene_object.data.type == 'SPOT':
                 json_sub_object["show_cone"] = str(scene_object.data.show_cone)
                 json_sub_object["spot_blend"] = scene_object.data.spot_blend
                 json_sub_object["spot_size"] = scene_object.data.spot_size
                 json_sub_object["use_square"] = str(scene_object.data.use_square)
-                json_sub_object["shadow_cascade_count"] = scene_object.data.shadow_cascade_count
-                json_sub_object["shadow_cascade_exponent"] = scene_object.data.shadow_cascade_exponent
-                json_sub_object["shadow_cascade_fade"] = scene_object.data. shadow_cascade_fade
-                json_sub_object["shadow_cascade_max_distance"] = scene_object.data.shadow_cascade_max_distance
 
             elif scene_object.data.type == 'AREA':
                 json_sub_object["shape"] = scene_object.data.shape
@@ -167,7 +171,6 @@ def write_json_object(f, meshes, lights, cams):
             json_sub_object["lens"] = scene_object.data.lens
             json_sub_object["lens_unit"] = scene_object.data.lens_unit
             json_sub_object["ortho_scale"] = scene_object.data.ortho_scale
-            json_sub_object["passepartout_alpha"] = scene_object.data.passepartout_alpha
             json_sub_object["sensor_fit"] = scene_object.data.sensor_fit
             json_sub_object["sensor_height"] = scene_object.data.sensor_height
             json_sub_object["sensor_width"] = scene_object.data.sensor_width

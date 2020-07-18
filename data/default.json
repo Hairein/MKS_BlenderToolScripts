@@ -6,7 +6,9 @@
       "y": 0.0,
       "z": -9.8100004196167
     },
-    "use_gravity": "True"
+    "use_gravity": "True",
+    "exporter": "MKS Blender JSON Exporter",
+    "exporter_version": "1.0"
   },
   "0": {
     "name": "Cube",
@@ -120,7 +122,6 @@
     "lens": 50.0,
     "lens_unit": "MILLIMETERS",
     "ortho_scale": 7.314285755157471,
-    "passepartout_alpha": 0.5,
     "sensor_fit": "AUTO",
     "sensor_height": 24.0,
     "sensor_width": 36.0,
@@ -131,7 +132,7 @@
     "name": "Cube.Child",
     "type": "MESH",
     "visibility": "True",
-    "collider": "True",
+    "collider": "False",
     "location": {
       "x": 0.0,
       "y": 5.0,
@@ -153,7 +154,7 @@
     "name": "Cube.Parent",
     "type": "MESH",
     "visibility": "True",
-    "collider": "True",
+    "collider": "False",
     "location": {
       "x": 0.0,
       "y": 6.0,
