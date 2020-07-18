@@ -1,6 +1,6 @@
 # MKS Blender Scene Definition Exporter (JSON)
 
-This script exports the hierachical scene defintion in a JSON format for parsing in other applications and tools.
+This script exports the hierarchical scene definition in a JSON format for parsing in other applications and tools.
 
 
 by Micah Koleoso Software, 2020
@@ -9,7 +9,7 @@ by Micah Koleoso Software, 2020
 
 
 
-For bug reoprts, fixes, change or feature requests, please email [contact@micahkoleoso.de](mailto:contact@micahkoleoso.de)
+For bug reports, fixes, change or feature requests, please email [contact@micahkoleoso.de](mailto:contact@micahkoleoso.de)
 
 but please add "Blender JSON Exporter" in the header to speed up me reading the mail.
 
