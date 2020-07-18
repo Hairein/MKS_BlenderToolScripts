@@ -1,16 +1,12 @@
-# MKS_BlenderToolScripts
+# MKS Blender Scene Definition Exporter (JSON)
 
+This script exports the hierachical scene defintion in a JSON format for parsing in other applications and tools.
 
-This script exports the hierachical scene defintion in a JSON format for parsing in 
-
-other applications and tools.
-
-
-MKS Blender Scene Definition Exporter (JSON)
 
 by Micah Koleoso Software, 2020
 
 [www.micahkoleoso.de](http://www.micahkoleoso.de)
+
 
 
 For bug reoprts, fixes, change or feature requests, please email [contact@micahkoleoso.de](mailto:contact@micahkoleoso.de)
@@ -52,37 +48,37 @@ but please add "Blender JSON Exporter" in the header to speed up me reading the 
 
     "specular_factor" = [float]  
     
-    "contact_shadow_distance"] = [float]
+    "contact_shadow_distance" = [float]
 
-    "contact_shadow_thickness"] = [float]
+    "contact_shadow_thickness" = [float]
 
-    "energy"] = [float]
+    "energy" = [float]
 
-    "falloff_type"] = [‘CONSTANT’|‘INVERSE_LINEAR’|‘INVERSE_SQUARE’|‘INVERSE_COEFFICIENTS’|‘CUSTOM_CURVE’|‘LINEAR_QUADRATIC_WEIGHTED’]
+    "falloff_type" = [‘CONSTANT’|‘INVERSE_LINEAR’|‘INVERSE_SQUARE’|‘INVERSE_COEFFICIENTS’|‘CUSTOM_CURVE’|‘LINEAR_QUADRATIC_WEIGHTED’]
 
-    "linear_attenuation"] = [float]
+    "linear_attenuation" = [float]
 
-    "linear_coefficient"] = [float]
+    "linear_coefficient" = [float]
 
-    "quadratic_attenuation"] = [float]
+    "quadratic_attenuation" = [float]
 
-    "quadratic_coefficient"] = [float]
+    "quadratic_coefficient" = [float]
 
-    "shadow_buffer_bias"] = [float]
+    "shadow_buffer_bias" = [float]
 
-    "shadow_buffer_clip_start"] = [float]
+    "shadow_buffer_clip_start" = [float]
 
-    "shadow_buffer_samples"] = [float]
+    "shadow_buffer_samples" = [float]
 
-    "shadow_buffer_size"] = [float]    
+    "shadow_buffer_size" = [float]    
 
     shadow_color = (r,g,b) [floats]  
 
-    "shadow_soft_size"] = [float]
+    "shadow_soft_size" = [float]
 
-    "use_contact_shadow"] = ['True'|'False']
+    "use_contact_shadow" = ['True'|'False']
 
-    "use_shadow"] = ['True'|'False']
+    "use_shadow" = ['True'|'False']
 
 #### Point light
 
@@ -92,23 +88,23 @@ but please add "Blender JSON Exporter" in the header to speed up me reading the 
 
     "angle" = [float in degrees]
 
-    "shadow_cascade_count"] = [int]
+    "shadow_cascade_count" = [int]
 
-    "shadow_cascade_exponent"] = [float]
+    "shadow_cascade_exponent" = [float]
 
-    "shadow_cascade_fade"] = [float]
+    "shadow_cascade_fade" = [float]
 
-    "shadow_cascade_max_distance"] = [float]
+    "shadow_cascade_max_distance" = [float]
 
 #### Spot light
 
-    "show_cone"] = ['True'|'False']
+    "show_cone" = ['True'|'False']
 
-    "spot_blend"] = [float]
+    "spot_blend" = [float]
 
-    "spot_size"] = [float]
+    "spot_size" = [float]
 
-    "use_square"] = ['True'|'False']
+    "use_square" = ['True'|'False']
 
 #### Area light
 
