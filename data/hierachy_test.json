@@ -1,0 +1,57 @@
+{
+  "scene": {
+    "active_camera": "Camera",
+    "gravity": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": -9.8100004196167
+    },
+    "use_gravity": "True",
+    "exporter": "MKS Blender JSON Exporter",
+    "exporter_version": "1.0"
+  },
+  "0": {
+    "name": "Cube1",
+    "type": "MESH",
+    "visibility": "True",
+    "collider": "False",
+    "location": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0
+    },
+    "rotation": {
+      "x": 0.0,
+      "y": -0.0,
+      "z": 45.00000125223908
+    },
+    "scale": {
+      "x": 1.0,
+      "y": 1.0,
+      "z": 1.0
+    },
+    "parent_index": -1
+  },
+  "1": {
+    "name": "Cube2",
+    "type": "MESH",
+    "visibility": "True",
+    "collider": "False",
+    "location": {
+      "x": 2.0,
+      "y": 1.0,
+      "z": 3.0
+    },
+    "rotation": {
+      "x": 9.99999970909292,
+      "y": 19.99999941818584,
+      "z": 30.000000834826057
+    },
+    "scale": {
+      "x": 1.25,
+      "y": 1.25,
+      "z": 1.25
+    },
+    "parent_index": 0
+  }
+}
