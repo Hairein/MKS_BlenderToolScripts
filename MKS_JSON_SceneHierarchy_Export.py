@@ -21,12 +21,15 @@ def find_object_index(object):
         
     return find_index
 
-def write_json_object(f, empties, meshes, lights, cams):
+def write_json_object(f, empties, meshes, lights, light_details, cams, cam_details):
     scene = bpy.context.scene
 
     json_object =  {}
     
     scene_object = {}
+
+    scene_object["exporter"]= "MKS Blender JSON Exporter"
+    scene_object["exporter_version"]= "1.0"
 
     scene_object["active_camera"]= scene.camera.name
 
@@ -37,9 +40,6 @@ def write_json_object(f, empties, meshes, lights, cams):
     scene_object["gravity"]= scene_gravity_object
 
     scene_object["use_gravity"] = str(scene.use_gravity) 
-
-    scene_object["exporter"]= "MKS Blender JSON Exporter"
-    scene_object["exporter_version"]= "1.0"
 
     json_object["scene"] = scene_object
     
@@ -90,7 +90,7 @@ def write_json_object(f, empties, meshes, lights, cams):
         parent_index = find_object_index(scene_object.parent)     
         json_sub_object["parent_index"] = parent_index
         
-        if scene_object.type == 'LIGHT':
+        if scene_object.type == 'LIGHT' and light_details:
             json_sub_object["light_type"] = scene_object.data.type
        
             light_color = {}
@@ -119,8 +119,7 @@ def write_json_object(f, empties, meshes, lights, cams):
             json_sub_object["shadow_buffer_clip_start"] = scene_object.data.shadow_buffer_clip_start
             json_sub_object["shadow_buffer_samples"] = scene_object.data.shadow_buffer_samples
             json_sub_object["shadow_buffer_size"] = scene_object.data.shadow_buffer_size
-            
-            
+                        
             shadow_color = {}
             shadow_color["r"] = scene_object.data.shadow_color[0]
             shadow_color["g"] = scene_object.data.shadow_color[1]
@@ -152,7 +151,7 @@ def write_json_object(f, empties, meshes, lights, cams):
                 json_sub_object["size"] = scene_object.data.size
                 json_sub_object["size_y"] = scene_object.data.size_y
                     
-        elif scene_object.type == 'CAMERA':
+        elif scene_object.type == 'CAMERA' and cam_details:
             json_sub_object["camera_type"] = scene_object.data.type
 
             json_sub_object["angle"] = to_degrees(scene_object.data.angle)
@@ -186,11 +185,11 @@ def write_json_object(f, empties, meshes, lights, cams):
     f.write(json.dumps(json_object, indent=2))
     f.write("\n")
     
-def write_some_data(context, filepath, empties, meshes, lights, cameras):
+def write_some_data(context, filepath, empties, meshes, lights, light_details, cameras, camera_details):
     print("running MKS JSON Scene export...")
     f = open(filepath, 'w', encoding='utf-8')
 
-    write_json_object(f, empties, meshes, lights, cameras)
+    write_json_object(f, empties, meshes, lights, light_details, cameras, camera_details)
 
     f.close()
 
@@ -235,11 +234,23 @@ class ExportJSONScene(Operator, ExportHelper):
         description="Export light attributes",
         default=True,
     )
+
+    light_details_setting: BoolProperty(
+        name="Export Light Details",
+        description="Export light details",
+        default=False,
+    )
     
     cameras_setting: BoolProperty(
         name="Export Cameras",
-        description="Export object attributes",
+        description="Export camera attributes",
         default=True,
+    )
+
+    camera_details_setting: BoolProperty(
+        name="Export Camera Details",
+        description="Export camera details",
+        default=False,
     )
 
     def execute(self, context):
@@ -247,7 +258,9 @@ class ExportJSONScene(Operator, ExportHelper):
             self.empties_setting,
             self.meshes_setting,
             self.lights_setting,
-            self.cameras_setting)
+            self.light_details_setting,
+            self.cameras_setting,
+            self.camera_details_setting)
 
 
 # Only needed if you want to add into a dynamic menu

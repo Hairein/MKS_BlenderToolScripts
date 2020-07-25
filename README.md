@@ -166,4 +166,4 @@ but please add "Blender JSON Exporter" in the header to speed up me reading the 
             "dof_focus_object" = [focus object name as shown in Blender]
 
 
-## Tested on Blender v2.83.2 LTS
+## Tested on Blender v2.83.2/3 LTS

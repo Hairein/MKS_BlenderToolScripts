@@ -1,14 +1,14 @@
 {
   "scene": {
+    "exporter": "MKS Blender JSON Exporter",
+    "exporter_version": "1.0",
     "active_camera": "CameraMain",
     "gravity": {
       "x": 0.0,
       "y": 0.0,
       "z": -9.8100004196167
     },
-    "use_gravity": "True",
-    "exporter": "MKS Blender JSON Exporter",
-    "exporter_version": "1.0"
+    "use_gravity": "True"
   },
   "0": {
     "name": "Room",
@@ -52,38 +52,7 @@
       "y": 1.0,
       "z": 1.0
     },
-    "parent_index": 10,
-    "light_type": "POINT",
-    "light_color": {
-      "r": 1.0,
-      "g": 1.0,
-      "b": 1.0
-    },
-    "cutoff_distance": 40.0,
-    "distance_half_intensity": 29.999982833862305,
-    "specular_factor": 1.0,
-    "constant_coefficient": 0.0,
-    "contact_shadow_bias": 0.029999999329447746,
-    "contact_shadow_distance": 0.20000000298023224,
-    "contact_shadow_thickness": 0.0,
-    "energy": 1000.0,
-    "falloff_type": "INVERSE_SQUARE",
-    "linear_attenuation": 0.0,
-    "linear_coefficient": 0.0,
-    "quadratic_attenuation": 1.0,
-    "quadratic_coefficient": 0.0,
-    "shadow_buffer_bias": 1.0,
-    "shadow_buffer_clip_start": 0.05000000074505806,
-    "shadow_buffer_samples": 3,
-    "shadow_buffer_size": 2880,
-    "shadow_color": {
-      "r": 0.0,
-      "g": 0.0,
-      "b": 0.0
-    },
-    "shadow_soft_size": 0.10000000149011612,
-    "use_contact_shadow": "False",
-    "use_shadow": "True"
+    "parent_index": 10
   },
   "2": {
     "name": "CameraMain",
@@ -105,28 +74,7 @@
       "y": 1.0,
       "z": 1.0
     },
-    "parent_index": 10,
-    "camera_type": "PERSP",
-    "angle": 54.43222611864906,
-    "angle_x": 54.43222611864906,
-    "angle_y": 37.84928837995056,
-    "clip_end": 100.0,
-    "clip_start": 0.10000000149011612,
-    "display_size": 1.0,
-    "dof_aperture_blades": 0,
-    "dof_aperture_fstop": 2.799999952316284,
-    "dof_aperture_ratio": 1.0,
-    "dof_aperture_rotation": 0.0,
-    "dof_focus_distance": 10.0,
-    "dof_use_dof": "False",
-    "lens": 35.0,
-    "lens_unit": "MILLIMETERS",
-    "ortho_scale": 7.314285755157471,
-    "sensor_fit": "AUTO",
-    "sensor_height": 24.0,
-    "sensor_width": 36.0,
-    "shift_x": 0.0,
-    "shift_y": 0.0
+    "parent_index": 10
   },
   "3": {
     "name": "LightRight",
@@ -148,38 +96,7 @@
       "y": 1.0,
       "z": 1.0
     },
-    "parent_index": 10,
-    "light_type": "POINT",
-    "light_color": {
-      "r": 1.0,
-      "g": 1.0,
-      "b": 1.0
-    },
-    "cutoff_distance": 40.0,
-    "distance_half_intensity": 29.999982833862305,
-    "specular_factor": 1.0,
-    "constant_coefficient": 0.0,
-    "contact_shadow_bias": 0.029999999329447746,
-    "contact_shadow_distance": 0.20000000298023224,
-    "contact_shadow_thickness": 0.0,
-    "energy": 250.0,
-    "falloff_type": "INVERSE_SQUARE",
-    "linear_attenuation": 0.0,
-    "linear_coefficient": 0.0,
-    "quadratic_attenuation": 1.0,
-    "quadratic_coefficient": 0.0,
-    "shadow_buffer_bias": 1.0,
-    "shadow_buffer_clip_start": 0.05000000074505806,
-    "shadow_buffer_samples": 3,
-    "shadow_buffer_size": 2880,
-    "shadow_color": {
-      "r": 0.0,
-      "g": 0.0,
-      "b": 0.0
-    },
-    "shadow_soft_size": 0.10000000149011612,
-    "use_contact_shadow": "False",
-    "use_shadow": "True"
+    "parent_index": 10
   },
   "4": {
     "name": "LightLeft",
@@ -201,38 +118,7 @@
       "y": 1.0,
       "z": 1.0
     },
-    "parent_index": 10,
-    "light_type": "POINT",
-    "light_color": {
-      "r": 1.0,
-      "g": 1.0,
-      "b": 1.0
-    },
-    "cutoff_distance": 40.0,
-    "distance_half_intensity": 29.999982833862305,
-    "specular_factor": 1.0,
-    "constant_coefficient": 0.0,
-    "contact_shadow_bias": 0.029999999329447746,
-    "contact_shadow_distance": 0.20000000298023224,
-    "contact_shadow_thickness": 0.0,
-    "energy": 250.0,
-    "falloff_type": "INVERSE_SQUARE",
-    "linear_attenuation": 0.0,
-    "linear_coefficient": 0.0,
-    "quadratic_attenuation": 1.0,
-    "quadratic_coefficient": 0.0,
-    "shadow_buffer_bias": 1.0,
-    "shadow_buffer_clip_start": 0.05000000074505806,
-    "shadow_buffer_samples": 3,
-    "shadow_buffer_size": 2880,
-    "shadow_color": {
-      "r": 0.0,
-      "g": 0.0,
-      "b": 0.0
-    },
-    "shadow_soft_size": 0.10000000149011612,
-    "use_contact_shadow": "False",
-    "use_shadow": "True"
+    "parent_index": 10
   },
   "5": {
     "name": "BoxYellow",
