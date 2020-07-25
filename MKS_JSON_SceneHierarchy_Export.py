@@ -21,7 +21,7 @@ def find_object_index(object):
         
     return find_index
 
-def write_json_object(f, meshes, lights, cams):
+def write_json_object(f, empties, meshes, lights, cams):
     scene = bpy.context.scene
 
     json_object =  {}
@@ -46,9 +46,11 @@ def write_json_object(f, meshes, lights, cams):
     index = 0
     for scene_object in scene.objects: 
         
-        if scene_object.type != 'MESH' and scene_object.type != 'LIGHT' and scene_object.type != 'CAMERA':
+        if scene_object.type != 'EMPTY' and scene_object.type != 'MESH' and scene_object.type != 'LIGHT' and scene_object.type != 'CAMERA':
             continue
         
+        if scene_object.type == 'EMPTY' and not empties:
+            continue
         if scene_object.type == 'MESH' and not meshes:
             continue
         if scene_object.type == 'LIGHT' and not lights:
@@ -184,11 +186,11 @@ def write_json_object(f, meshes, lights, cams):
     f.write(json.dumps(json_object, indent=2))
     f.write("\n")
     
-def write_some_data(context, filepath, meshes, lights, cameras):
+def write_some_data(context, filepath, empties, meshes, lights, cameras):
     print("running MKS JSON Scene export...")
     f = open(filepath, 'w', encoding='utf-8')
 
-    write_json_object(f, meshes, lights, cameras)
+    write_json_object(f, empties, meshes, lights, cameras)
 
     f.close()
 
@@ -216,6 +218,12 @@ class ExportJSONScene(Operator, ExportHelper):
         maxlen=255,  # Max internal buffer length, longer would be clamped.
     )
     
+    empties_setting: BoolProperty(
+        name="Export Empties",
+        description="Export empty attributes",
+        default=True,
+    )
+    
     meshes_setting: BoolProperty(
         name="Export Meshes",
         description="Export mesh attributes",
@@ -236,6 +244,7 @@ class ExportJSONScene(Operator, ExportHelper):
 
     def execute(self, context):
         return write_some_data(context, self.filepath, 
+            self.empties_setting,
             self.meshes_setting,
             self.lights_setting,
             self.cameras_setting)

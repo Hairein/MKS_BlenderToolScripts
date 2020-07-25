@@ -17,11 +17,11 @@ but please add "Blender JSON Exporter" in the header to speed up me reading the 
 
 ## OBJECTS OUTPUT DATA:
 
-### Common Mesh|Light|Camera parameters
+### Common Empty|Mesh|Light|Camera parameters
 
     "name" = [Text with name as shown in Blender]
 
-    "type" = ['MESH'|'LIGHT'|'CAMERA']
+    "type" = ['EMPTY'|'MESH'|'LIGHT'|'CAMERA']
 
     "visibility" = ['True'|'False']
 

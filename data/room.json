@@ -1,0 +1,369 @@
+{
+  "scene": {
+    "active_camera": "CameraMain",
+    "gravity": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": -9.8100004196167
+    },
+    "use_gravity": "True",
+    "exporter": "MKS Blender JSON Exporter",
+    "exporter_version": "1.0"
+  },
+  "0": {
+    "name": "Room",
+    "type": "MESH",
+    "visibility": "True",
+    "collider": "False",
+    "location": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "rotation": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "scale": {
+      "x": 1.0,
+      "y": 1.0,
+      "z": 1.0
+    },
+    "parent_index": 10
+  },
+  "1": {
+    "name": "LightMain",
+    "type": "LIGHT",
+    "visibility": "True",
+    "collider": "False",
+    "location": {
+      "x": 3.0762453079223633,
+      "y": -4.994545936584473,
+      "z": 5.903861999511719
+    },
+    "rotation": {
+      "x": 37.261048582966964,
+      "y": 3.163707551613352,
+      "z": 106.9363171553602
+    },
+    "scale": {
+      "x": 1.0,
+      "y": 1.0,
+      "z": 1.0
+    },
+    "parent_index": 10,
+    "light_type": "POINT",
+    "light_color": {
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0
+    },
+    "cutoff_distance": 40.0,
+    "distance_half_intensity": 29.999982833862305,
+    "specular_factor": 1.0,
+    "constant_coefficient": 0.0,
+    "contact_shadow_bias": 0.029999999329447746,
+    "contact_shadow_distance": 0.20000000298023224,
+    "contact_shadow_thickness": 0.0,
+    "energy": 1000.0,
+    "falloff_type": "INVERSE_SQUARE",
+    "linear_attenuation": 0.0,
+    "linear_coefficient": 0.0,
+    "quadratic_attenuation": 1.0,
+    "quadratic_coefficient": 0.0,
+    "shadow_buffer_bias": 1.0,
+    "shadow_buffer_clip_start": 0.05000000074505806,
+    "shadow_buffer_samples": 3,
+    "shadow_buffer_size": 2880,
+    "shadow_color": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0
+    },
+    "shadow_soft_size": 0.10000000149011612,
+    "use_contact_shadow": "False",
+    "use_shadow": "True"
+  },
+  "2": {
+    "name": "CameraMain",
+    "type": "CAMERA",
+    "visibility": "True",
+    "collider": "False",
+    "location": {
+      "x": 7.101672172546387,
+      "y": -6.683331489562988,
+      "z": 5.63430118560791
+    },
+    "rotation": {
+      "x": 63.5592952084158,
+      "y": 0.0,
+      "z": 46.691944977583375
+    },
+    "scale": {
+      "x": 1.0,
+      "y": 1.0,
+      "z": 1.0
+    },
+    "parent_index": 10,
+    "camera_type": "PERSP",
+    "angle": 54.43222611864906,
+    "angle_x": 54.43222611864906,
+    "angle_y": 37.84928837995056,
+    "clip_end": 100.0,
+    "clip_start": 0.10000000149011612,
+    "display_size": 1.0,
+    "dof_aperture_blades": 0,
+    "dof_aperture_fstop": 2.799999952316284,
+    "dof_aperture_ratio": 1.0,
+    "dof_aperture_rotation": 0.0,
+    "dof_focus_distance": 10.0,
+    "dof_use_dof": "False",
+    "lens": 35.0,
+    "lens_unit": "MILLIMETERS",
+    "ortho_scale": 7.314285755157471,
+    "sensor_fit": "AUTO",
+    "sensor_height": 24.0,
+    "sensor_width": 36.0,
+    "shift_x": 0.0,
+    "shift_y": 0.0
+  },
+  "3": {
+    "name": "LightRight",
+    "type": "LIGHT",
+    "visibility": "True",
+    "collider": "False",
+    "location": {
+      "x": 3.0762453079223633,
+      "y": 6.005454063415527,
+      "z": 5.903861999511719
+    },
+    "rotation": {
+      "x": 37.261048582966964,
+      "y": 3.163707551613352,
+      "z": 106.9363171553602
+    },
+    "scale": {
+      "x": 1.0,
+      "y": 1.0,
+      "z": 1.0
+    },
+    "parent_index": 10,
+    "light_type": "POINT",
+    "light_color": {
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0
+    },
+    "cutoff_distance": 40.0,
+    "distance_half_intensity": 29.999982833862305,
+    "specular_factor": 1.0,
+    "constant_coefficient": 0.0,
+    "contact_shadow_bias": 0.029999999329447746,
+    "contact_shadow_distance": 0.20000000298023224,
+    "contact_shadow_thickness": 0.0,
+    "energy": 250.0,
+    "falloff_type": "INVERSE_SQUARE",
+    "linear_attenuation": 0.0,
+    "linear_coefficient": 0.0,
+    "quadratic_attenuation": 1.0,
+    "quadratic_coefficient": 0.0,
+    "shadow_buffer_bias": 1.0,
+    "shadow_buffer_clip_start": 0.05000000074505806,
+    "shadow_buffer_samples": 3,
+    "shadow_buffer_size": 2880,
+    "shadow_color": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0
+    },
+    "shadow_soft_size": 0.10000000149011612,
+    "use_contact_shadow": "False",
+    "use_shadow": "True"
+  },
+  "4": {
+    "name": "LightLeft",
+    "type": "LIGHT",
+    "visibility": "True",
+    "collider": "False",
+    "location": {
+      "x": -2.9237546920776367,
+      "y": -4.994545936584473,
+      "z": 5.903861999511719
+    },
+    "rotation": {
+      "x": 37.261048582966964,
+      "y": 3.163707551613352,
+      "z": 106.9363171553602
+    },
+    "scale": {
+      "x": 1.0,
+      "y": 1.0,
+      "z": 1.0
+    },
+    "parent_index": 10,
+    "light_type": "POINT",
+    "light_color": {
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0
+    },
+    "cutoff_distance": 40.0,
+    "distance_half_intensity": 29.999982833862305,
+    "specular_factor": 1.0,
+    "constant_coefficient": 0.0,
+    "contact_shadow_bias": 0.029999999329447746,
+    "contact_shadow_distance": 0.20000000298023224,
+    "contact_shadow_thickness": 0.0,
+    "energy": 250.0,
+    "falloff_type": "INVERSE_SQUARE",
+    "linear_attenuation": 0.0,
+    "linear_coefficient": 0.0,
+    "quadratic_attenuation": 1.0,
+    "quadratic_coefficient": 0.0,
+    "shadow_buffer_bias": 1.0,
+    "shadow_buffer_clip_start": 0.05000000074505806,
+    "shadow_buffer_samples": 3,
+    "shadow_buffer_size": 2880,
+    "shadow_color": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0
+    },
+    "shadow_soft_size": 0.10000000149011612,
+    "use_contact_shadow": "False",
+    "use_shadow": "True"
+  },
+  "5": {
+    "name": "BoxYellow",
+    "type": "MESH",
+    "visibility": "True",
+    "collider": "False",
+    "location": {
+      "x": -0.6000000238418579,
+      "y": 2.5999999046325684,
+      "z": 0.5
+    },
+    "rotation": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": -4.999999427659637
+    },
+    "scale": {
+      "x": 0.5,
+      "y": 0.5,
+      "z": 0.5
+    },
+    "parent_index": 0
+  },
+  "6": {
+    "name": "BoxYellow.001",
+    "type": "MESH",
+    "visibility": "True",
+    "collider": "False",
+    "location": {
+      "x": -0.7000000476837158,
+      "y": 1.3999998569488525,
+      "z": 0.5
+    },
+    "rotation": {
+      "x": 0.0,
+      "y": -0.0,
+      "z": 4.2688682312579694e-07
+    },
+    "scale": {
+      "x": 0.5,
+      "y": 0.5,
+      "z": 0.5
+    },
+    "parent_index": 0
+  },
+  "7": {
+    "name": "BoxYellow.002",
+    "type": "MESH",
+    "visibility": "True",
+    "collider": "False",
+    "location": {
+      "x": 0.5,
+      "y": 2.6999998092651367,
+      "z": 0.5
+    },
+    "rotation": {
+      "x": 0.0,
+      "y": -0.0,
+      "z": 5.000000281433284
+    },
+    "scale": {
+      "x": 0.5,
+      "y": 0.5,
+      "z": 0.5
+    },
+    "parent_index": 0
+  },
+  "8": {
+    "name": "BoxYellow.003",
+    "type": "MESH",
+    "visibility": "True",
+    "collider": "False",
+    "location": {
+      "x": -0.40000003576278687,
+      "y": 2.299999952316284,
+      "z": 1.5
+    },
+    "rotation": {
+      "x": 1.6815530866260002,
+      "y": -2.7452622019714563,
+      "z": 4.428691669628506
+    },
+    "scale": {
+      "x": 0.5,
+      "y": 0.5,
+      "z": 0.5
+    },
+    "parent_index": 5
+  },
+  "9": {
+    "name": "SphereRed",
+    "type": "MESH",
+    "visibility": "True",
+    "collider": "False",
+    "location": {
+      "x": -0.6000000238418579,
+      "y": -1.899999976158142,
+      "z": 0.5
+    },
+    "rotation": {
+      "x": 49.999996837917315,
+      "y": 34.99999983559887,
+      "z": 86.99999900590097
+    },
+    "scale": {
+      "x": 0.5,
+      "y": 0.49999988079071045,
+      "z": 0.5
+    },
+    "parent_index": 10
+  },
+  "10": {
+    "name": "EmptyRoot",
+    "type": "EMPTY",
+    "visibility": "True",
+    "collider": "False",
+    "location": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "rotation": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "scale": {
+      "x": 1.0,
+      "y": 1.0,
+      "z": 1.0
+    },
+    "parent_index": -1
+  }
+}
