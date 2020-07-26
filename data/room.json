@@ -13,6 +13,7 @@
   "0": {
     "name": "Room",
     "type": "MESH",
+    "scene_index": 0,
     "visibility": "True",
     "collider": "False",
     "location": {
@@ -24,94 +25,6 @@
       "x": 0.0,
       "y": 0.0,
       "z": 0.0
-    },
-    "scale": {
-      "x": 1.0,
-      "y": 1.0,
-      "z": 1.0
-    },
-    "parent_index": 10
-  },
-  "1": {
-    "name": "LightMain",
-    "type": "LIGHT",
-    "visibility": "True",
-    "collider": "False",
-    "location": {
-      "x": 3.0762453079223633,
-      "y": -4.994545936584473,
-      "z": 5.903861999511719
-    },
-    "rotation": {
-      "x": 37.261048582966964,
-      "y": 3.163707551613352,
-      "z": 106.9363171553602
-    },
-    "scale": {
-      "x": 1.0,
-      "y": 1.0,
-      "z": 1.0
-    },
-    "parent_index": 10
-  },
-  "2": {
-    "name": "CameraMain",
-    "type": "CAMERA",
-    "visibility": "True",
-    "collider": "False",
-    "location": {
-      "x": 7.101672172546387,
-      "y": -6.683331489562988,
-      "z": 5.63430118560791
-    },
-    "rotation": {
-      "x": 63.5592952084158,
-      "y": 0.0,
-      "z": 46.691944977583375
-    },
-    "scale": {
-      "x": 1.0,
-      "y": 1.0,
-      "z": 1.0
-    },
-    "parent_index": 10
-  },
-  "3": {
-    "name": "LightRight",
-    "type": "LIGHT",
-    "visibility": "True",
-    "collider": "False",
-    "location": {
-      "x": 3.0762453079223633,
-      "y": 6.005454063415527,
-      "z": 5.903861999511719
-    },
-    "rotation": {
-      "x": 37.261048582966964,
-      "y": 3.163707551613352,
-      "z": 106.9363171553602
-    },
-    "scale": {
-      "x": 1.0,
-      "y": 1.0,
-      "z": 1.0
-    },
-    "parent_index": 10
-  },
-  "4": {
-    "name": "LightLeft",
-    "type": "LIGHT",
-    "visibility": "True",
-    "collider": "False",
-    "location": {
-      "x": -2.9237546920776367,
-      "y": -4.994545936584473,
-      "z": 5.903861999511719
-    },
-    "rotation": {
-      "x": 37.261048582966964,
-      "y": 3.163707551613352,
-      "z": 106.9363171553602
     },
     "scale": {
       "x": 1.0,
@@ -123,6 +36,7 @@
   "5": {
     "name": "BoxYellow",
     "type": "MESH",
+    "scene_index": 5,
     "visibility": "True",
     "collider": "False",
     "location": {
@@ -145,6 +59,7 @@
   "6": {
     "name": "BoxYellow.001",
     "type": "MESH",
+    "scene_index": 6,
     "visibility": "True",
     "collider": "False",
     "location": {
@@ -167,6 +82,7 @@
   "7": {
     "name": "BoxYellow.002",
     "type": "MESH",
+    "scene_index": 7,
     "visibility": "True",
     "collider": "False",
     "location": {
@@ -189,6 +105,7 @@
   "8": {
     "name": "BoxYellow.003",
     "type": "MESH",
+    "scene_index": 8,
     "visibility": "True",
     "collider": "False",
     "location": {
@@ -211,6 +128,7 @@
   "9": {
     "name": "SphereRed",
     "type": "MESH",
+    "scene_index": 9,
     "visibility": "True",
     "collider": "False",
     "location": {
@@ -229,27 +147,5 @@
       "z": 0.5
     },
     "parent_index": 10
-  },
-  "10": {
-    "name": "EmptyRoot",
-    "type": "EMPTY",
-    "visibility": "True",
-    "collider": "False",
-    "location": {
-      "x": 0.0,
-      "y": 0.0,
-      "z": 0.0
-    },
-    "rotation": {
-      "x": 0.0,
-      "y": 0.0,
-      "z": 0.0
-    },
-    "scale": {
-      "x": 1.0,
-      "y": 1.0,
-      "z": 1.0
-    },
-    "parent_index": -1
   }
 }

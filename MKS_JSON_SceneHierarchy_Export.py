@@ -47,21 +47,30 @@ def write_json_object(f, empties, meshes, lights, light_details, cams, cam_detai
     for scene_object in scene.objects: 
         
         if scene_object.type != 'EMPTY' and scene_object.type != 'MESH' and scene_object.type != 'LIGHT' and scene_object.type != 'CAMERA':
+            index += 1
             continue
         
         if scene_object.type == 'EMPTY' and not empties:
+            index += 1
             continue
+
         if scene_object.type == 'MESH' and not meshes:
+            index += 1
             continue
         if scene_object.type == 'LIGHT' and not lights:
+            index += 1
             continue
+
         if scene_object.type == 'CAMERA' and not cams:
+            index += 1
             continue
         
         json_sub_object = {}
         
         json_sub_object["name"] = scene_object.name
         json_sub_object["type"] = scene_object.type
+        
+        json_sub_object["scene_index"] = index
 
         json_sub_object["visibility"] = str(not scene_object.hide_render)
         
