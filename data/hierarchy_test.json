@@ -1,7 +1,9 @@
 {
-  "scene": {
+  "exporter": {
     "exporter": "MKS Blender JSON Exporter",
-    "exporter_version": "1.0",
+    "exporter_version": "1.1"
+  },
+  "scene": {
     "active_camera": "Camera",
     "gravity": {
       "x": 0.0,
@@ -12,7 +14,9 @@
   },
   "0": {
     "name": "Cube1",
+    "base_name": "Cube1",
     "type": "MESH",
+    "scene_index": 0,
     "visibility": "True",
     "collider": "False",
     "location": {
@@ -20,7 +24,12 @@
       "y": 1.0,
       "z": 0.0
     },
-    "rotation": {
+    "rotation_radians": {
+      "x": 0.0,
+      "y": -0.0,
+      "z": 0.7853981852531433
+    },
+    "rotation_degrees": {
       "x": 0.0,
       "y": -0.0,
       "z": 45.00000125223908
@@ -33,8 +42,68 @@
     "parent_index": -1
   },
   "1": {
+    "name": "Light",
+    "base_name": "Light",
+    "type": "LIGHT",
+    "scene_index": 1,
+    "visibility": "True",
+    "collider": "False",
+    "location": {
+      "x": 2.0,
+      "y": -3.0,
+      "z": 6.0
+    },
+    "rotation_radians": {
+      "x": 0.6503279805183411,
+      "y": 0.055217113345861435,
+      "z": 1.8663908243179321
+    },
+    "rotation_degrees": {
+      "x": 37.261048582966964,
+      "y": 3.163707551613352,
+      "z": 106.9363171553602
+    },
+    "scale": {
+      "x": 1.0,
+      "y": 1.0,
+      "z": 1.0
+    },
+    "parent_index": -1
+  },
+  "2": {
+    "name": "Camera",
+    "base_name": "Camera",
+    "type": "CAMERA",
+    "scene_index": 2,
+    "visibility": "True",
+    "collider": "False",
+    "location": {
+      "x": 10.08509635925293,
+      "y": -7.804760932922363,
+      "z": 7.962278366088867
+    },
+    "rotation_radians": {
+      "x": 1.1093189716339111,
+      "y": 0.0,
+      "z": 0.8149281740188599
+    },
+    "rotation_degrees": {
+      "x": 63.5592952084158,
+      "y": 0.0,
+      "z": 46.691944977583375
+    },
+    "scale": {
+      "x": 1.0,
+      "y": 1.0,
+      "z": 1.0
+    },
+    "parent_index": -1
+  },
+  "3": {
     "name": "Cube2",
+    "base_name": "Cube2",
     "type": "MESH",
+    "scene_index": 3,
     "visibility": "True",
     "collider": "False",
     "location": {
@@ -42,7 +111,12 @@
       "y": 1.0,
       "z": 3.0
     },
-    "rotation": {
+    "rotation_radians": {
+      "x": 0.1745329201221466,
+      "y": 0.3490658402442932,
+      "z": 0.5235987901687622
+    },
+    "rotation_degrees": {
       "x": 9.99999970909292,
       "y": 19.99999941818584,
       "z": 30.000000834826057
@@ -53,5 +127,24 @@
       "z": 1.25
     },
     "parent_index": 0
+  },
+  "scene_statistics": {
+    "total_scene_objects_count": 4,
+    "exported_scene_objects_count": 4,
+    "empties_indices": [],
+    "empties_count": 0,
+    "meshes_indices": [
+      0,
+      3
+    ],
+    "meshes_count": 2,
+    "lights_indices": [
+      1
+    ],
+    "lights_count": 1,
+    "cameras_indices": [
+      2
+    ],
+    "cameras_count": 1
   }
 }

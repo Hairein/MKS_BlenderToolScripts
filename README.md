@@ -167,3 +167,16 @@ but please add "Blender JSON Exporter" in the header to speed up me reading the 
 
 
 ## Tested on Blender v2.83.2/3 LTS
+
+
+## Versions
+
+v1.1 
+- Bugfixed SUN LIGHT angle radians and degrees export
+- Added object base name, which is the name without anything after a first dot
+- Added general radians and degrees exports to all applicable attributes, such as rotations
+- Added scene statistics, arrays and object type (EMPTY, MESH, LIGHT, CAMERA) counts to indicate object type based on exported index
+- Refactored exporter information and version to seperate JSON sub-object 
+
+v1.0 
+- Initial Release

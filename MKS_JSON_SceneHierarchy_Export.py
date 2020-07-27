@@ -26,10 +26,16 @@ def write_json_object(f, empties, meshes, lights, light_details, cams, cam_detai
 
     json_object =  {}
     
-    scene_object = {}
+    # info
+    exporter_object = {}
 
-    scene_object["exporter"]= "MKS Blender JSON Exporter"
-    scene_object["exporter_version"]= "1.0"
+    exporter_object["exporter"]= "MKS Blender JSON Exporter"
+    exporter_object["exporter_version"]= "1.1"
+
+    json_object["exporter"] = exporter_object
+
+    # scene
+    scene_object = {}
 
     scene_object["active_camera"]= scene.camera.name
 
@@ -40,10 +46,19 @@ def write_json_object(f, empties, meshes, lights, light_details, cams, cam_detai
     scene_object["gravity"]= scene_gravity_object
 
     scene_object["use_gravity"] = str(scene.use_gravity) 
-
-    json_object["scene"] = scene_object
     
+    # first save
+    json_object["scene"] = scene_object
+
+    # objects
     index = 0
+    exported_count = 0
+    
+    empties_array = []
+    meshes_array = []
+    lights_array = []
+    cameras_array = []
+    
     for scene_object in scene.objects: 
         
         if scene_object.type != 'EMPTY' and scene_object.type != 'MESH' and scene_object.type != 'LIGHT' and scene_object.type != 'CAMERA':
@@ -57,6 +72,7 @@ def write_json_object(f, empties, meshes, lights, light_details, cams, cam_detai
         if scene_object.type == 'MESH' and not meshes:
             index += 1
             continue
+        
         if scene_object.type == 'LIGHT' and not lights:
             index += 1
             continue
@@ -64,11 +80,27 @@ def write_json_object(f, empties, meshes, lights, light_details, cams, cam_detai
         if scene_object.type == 'CAMERA' and not cams:
             index += 1
             continue
-        
+                
+        # common attributes
         json_sub_object = {}
         
         json_sub_object["name"] = scene_object.name
+        
+        split_name = scene_object.name.split(".")
+        if len(split_name) >= 1:
+            json_sub_object["base_name"] = split_name[0]
+        
         json_sub_object["type"] = scene_object.type
+        
+        # write to arrays
+        if scene_object.type == 'EMPTY':
+            empties_array.append(index)
+        elif scene_object.type == 'MESH':
+            meshes_array.append(index)
+        elif scene_object.type == 'LIGHT':
+            lights_array.append(index)
+        elif scene_object.type == 'CAMERA':
+            cameras_array.append(index)
         
         json_sub_object["scene_index"] = index
 
@@ -84,11 +116,17 @@ def write_json_object(f, empties, meshes, lights, light_details, cams, cam_detai
         location["z"] = scene_object.location.z
         json_sub_object["location"] = location
  
-        rotation = {}
-        rotation["x"] = to_degrees(scene_object.rotation_euler.x)
-        rotation["y"] = to_degrees(scene_object.rotation_euler.y)
-        rotation["z"] = to_degrees(scene_object.rotation_euler.z)      
-        json_sub_object["rotation"] = rotation
+        rotation_radians = {}
+        rotation_radians["x"] = scene_object.rotation_euler.x
+        rotation_radians["y"] = scene_object.rotation_euler.y
+        rotation_radians["z"] = scene_object.rotation_euler.z      
+        json_sub_object["rotation_radians"] = rotation_radians
+        
+        rotation_degrees = {}
+        rotation_degrees["x"] = to_degrees(scene_object.rotation_euler.x)
+        rotation_degrees["y"] = to_degrees(scene_object.rotation_euler.y)
+        rotation_degrees["z"] = to_degrees(scene_object.rotation_euler.z)      
+        json_sub_object["rotation_degrees"] = rotation_degrees
         
         scale = {}
         scale["x"] = scene_object.scale.x
@@ -96,9 +134,11 @@ def write_json_object(f, empties, meshes, lights, light_details, cams, cam_detai
         scale["z"] = scene_object.scale.z
         json_sub_object["scale"] = scale
        
+        # parent scene index
         parent_index = find_object_index(scene_object.parent)     
         json_sub_object["parent_index"] = parent_index
         
+        # light details
         if scene_object.type == 'LIGHT' and light_details:
             json_sub_object["light_type"] = scene_object.data.type
        
@@ -141,9 +181,11 @@ def write_json_object(f, empties, meshes, lights, light_details, cams, cam_detai
         
             if scene_object.data.type == 'POINT':
                 pass
-            
+
             elif scene_object.data.type == 'SUN':
-                json_sub_object["angle"] = scene_object.data.angle
+                json_sub_object["angle_radians"] = scene_object.data.angle
+                json_sub_object["angle_degrees"] = to_degrees(scene_object.data.angle)
+
                 json_sub_object["shadow_cascade_count"] = scene_object.data.shadow_cascade_count
                 json_sub_object["shadow_cascade_exponent"] = scene_object.data.shadow_cascade_exponent
                 json_sub_object["shadow_cascade_fade"] = scene_object.data. shadow_cascade_fade
@@ -159,13 +201,18 @@ def write_json_object(f, empties, meshes, lights, light_details, cams, cam_detai
                 json_sub_object["shape"] = scene_object.data.shape
                 json_sub_object["size"] = scene_object.data.size
                 json_sub_object["size_y"] = scene_object.data.size_y
-                    
+
+        # camera details           
         elif scene_object.type == 'CAMERA' and cam_details:
             json_sub_object["camera_type"] = scene_object.data.type
 
-            json_sub_object["angle"] = to_degrees(scene_object.data.angle)
-            json_sub_object["angle_x"] = to_degrees(scene_object.data. angle_x)
-            json_sub_object["angle_y"] = to_degrees(scene_object.data. angle_y)
+            json_sub_object["angle_radians"] = scene_object.data.angle
+            json_sub_object["angle_degrees"] = to_degrees(scene_object.data.angle)
+            json_sub_object["angle_x_radians"] = scene_object.data. angle_x
+            json_sub_object["angle_x_degrees"] = to_degrees(scene_object.data. angle_x)
+            json_sub_object["angle_y_radians"] = scene_object.data. angle_y
+            json_sub_object["angle_y_degrees"] = to_degrees(scene_object.data. angle_y)
+
             json_sub_object["clip_end"] = scene_object.data.clip_end
             json_sub_object["clip_start"] = scene_object.data.clip_start
             json_sub_object["display_size"] = scene_object.data.display_size
@@ -186,10 +233,34 @@ def write_json_object(f, empties, meshes, lights, light_details, cams, cam_detai
             json_sub_object["sensor_width"] = scene_object.data.sensor_width
             json_sub_object["shift_x"] = scene_object.data.shift_x
             json_sub_object["shift_y"] = scene_object.data.shift_y
-              
+
+        # scene id to json object mapping 
         json_object[str(index)] = json_sub_object
         
         index += 1
+        exported_count += 1
+    
+    scene_statistics = {}
+    scene_statistics["total_scene_objects_count"]= len(scene.objects)
+    scene_statistics["exported_scene_objects_count"]= exported_count#
+    
+    if empties:
+        scene_statistics["empties_indices"]= empties_array
+        scene_statistics["empties_count"]= len(empties_array)
+    
+    if meshes:
+        scene_statistics["meshes_indices"]= meshes_array
+        scene_statistics["meshes_count"]= len(meshes_array)
+    
+    if lights:
+        scene_statistics["lights_indices"]= lights_array
+        scene_statistics["lights_count"]= len(lights_array)
+    
+    if cams:
+        scene_statistics["cameras_indices"]= cameras_array
+        scene_statistics["cameras_count"]= len(cameras_array)
+    
+    json_object["scene_statistics"] = scene_statistics
 
     f.write(json.dumps(json_object, indent=2))
     f.write("\n")
@@ -213,7 +284,7 @@ from bpy.types import Operator
 
 
 class ExportJSONScene(Operator, ExportHelper):
-    """This appears in the tooltip of the operator and in the generated docs"""
+    """MKS Blender JSON Scene Hierarchy Exporter"""
     bl_idname = "export.json_scene"  # important since its how bpy.ops.import_test.some_data is constructed
     bl_label = "Export JSON Scene"
 
