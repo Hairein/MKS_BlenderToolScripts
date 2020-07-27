@@ -29,8 +29,8 @@ def write_json_object(f, empties, meshes, lights, light_details, cams, cam_detai
     # info
     exporter_object = {}
 
-    exporter_object["exporter"]= "MKS Blender JSON Exporter"
-    exporter_object["exporter_version"]= "1.1"
+    exporter_object["name"]= "MKS Blender JSON Exporter"
+    exporter_object["version"]= "1.1"
 
     json_object["exporter"] = exporter_object
 
@@ -242,7 +242,7 @@ def write_json_object(f, empties, meshes, lights, light_details, cams, cam_detai
     
     scene_statistics = {}
     scene_statistics["total_scene_objects_count"]= len(scene.objects)
-    scene_statistics["exported_scene_objects_count"]= exported_count#
+    scene_statistics["exported_scene_objects_count"]= exported_count
     
     if empties:
         scene_statistics["empties_indices"]= empties_array

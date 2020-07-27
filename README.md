@@ -166,6 +166,42 @@ but please add "Blender JSON Exporter" in the header to speed up me reading the 
             "dof_focus_object" = [focus object name as shown in Blender]
 
 
+### Scene
+
+    "active_camera" = [Text with name of active camera]
+
+    scene_gravity = [3 floats, x y z]
+
+    scene_object["use_gravity"] = = ['True'|'False']
+
+
+### Scene Statistics
+
+    "total_scene_objects_count" = [number, total objects in scene. Not all my be set to be exported]
+    scene_statistics["exported_scene_objects_count"]= [number, total exported objects in scene]
+    
+    if empties are exported:
+        "empties_indices" = [Number array, indices of empties]
+        "empties_count" = [Number, count of empties if exported]
+    
+    if meshes are exported:
+        "meshes_indices" = [Number array, indices of meshes]
+        "meshes_count" = [Number, count of meshes if exported]
+    
+    if lights are exported:
+        "lights_indices" = [Number array, indices of lights]
+        "lights_count" = [Number, count of lights if exported]
+    
+    if cams are exported:
+        "cameras_indices" = [Number array, indices of cameras]
+        "cameras_count" = [Number, count of cameras if exported]
+
+
+### Exporter Information
+    "name" = [Text with the exporter name]
+    "version" = [Text with the exporter version, given as ##Main Number##.##Sub Number## e.g. "1.1"]
+
+
 ## Tested on Blender v2.83.2/3 LTS
 
 
