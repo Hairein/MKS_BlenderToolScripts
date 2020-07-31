@@ -11,7 +11,7 @@ by Micah Koleoso Software, 2020
 
 For bug reports, fixes, change or feature requests, please email [contact@micahkoleoso.de](mailto:contact@micahkoleoso.de)
 
-but please add "Blender JSON Exporter" in the header to speed up me reading the mail.
+and please add "Blender JSON Exporter" in the header to speed up me reading the mail.
 
 
 
@@ -177,8 +177,8 @@ but please add "Blender JSON Exporter" in the header to speed up me reading the 
 
 ### Scene Statistics
 
-    "total_scene_objects_count" = [number, total objects in scene. Not all my be set to be exported]
-    scene_statistics["exported_scene_objects_count"]= [number, total exported objects in scene]
+    "total_scene_objects_count" = [Number, total objects in scene. Not all may be set to be exported]
+    "exported_scene_objects_count" = [Number, total exported objects in scene]
     
     if empties are exported:
         "empties_indices" = [Number array, indices of empties]
