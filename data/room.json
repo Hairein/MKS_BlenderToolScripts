@@ -1,7 +1,7 @@
 {
   "exporter": {
-    "exporter": "MKS Blender JSON Exporter",
-    "exporter_version": "1.1"
+    "name": "MKS Blender JSON Exporter",
+    "version": "1.2"
   },
   "scene": {
     "active_camera": "CameraMain",
@@ -14,6 +14,7 @@
   },
   "0": {
     "name": "Room",
+    "fullname": "Room",
     "base_name": "Room",
     "type": "MESH",
     "scene_index": 0,
@@ -43,6 +44,7 @@
   },
   "1": {
     "name": "LightMain",
+    "fullname": "LightMain",
     "base_name": "LightMain",
     "type": "LIGHT",
     "scene_index": 1,
@@ -72,6 +74,7 @@
   },
   "2": {
     "name": "CameraMain",
+    "fullname": "CameraMain",
     "base_name": "CameraMain",
     "type": "CAMERA",
     "scene_index": 2,
@@ -101,6 +104,7 @@
   },
   "3": {
     "name": "LightRight",
+    "fullname": "LightRight",
     "base_name": "LightRight",
     "type": "LIGHT",
     "scene_index": 3,
@@ -130,6 +134,7 @@
   },
   "4": {
     "name": "LightLeft",
+    "fullname": "LightLeft",
     "base_name": "LightLeft",
     "type": "LIGHT",
     "scene_index": 4,
@@ -159,6 +164,7 @@
   },
   "5": {
     "name": "BoxYellow",
+    "fullname": "BoxYellow",
     "base_name": "BoxYellow",
     "type": "MESH",
     "scene_index": 5,
@@ -188,6 +194,7 @@
   },
   "6": {
     "name": "BoxYellow.001",
+    "fullname": "BoxYellow.001",
     "base_name": "BoxYellow",
     "type": "MESH",
     "scene_index": 6,
@@ -217,6 +224,7 @@
   },
   "7": {
     "name": "BoxYellow.002",
+    "fullname": "BoxYellow.002",
     "base_name": "BoxYellow",
     "type": "MESH",
     "scene_index": 7,
@@ -246,6 +254,7 @@
   },
   "8": {
     "name": "BoxYellow.003",
+    "fullname": "BoxYellow.003",
     "base_name": "BoxYellow",
     "type": "MESH",
     "scene_index": 8,
@@ -275,6 +284,7 @@
   },
   "9": {
     "name": "SphereRed",
+    "fullname": "SphereRed",
     "base_name": "SphereRed",
     "type": "MESH",
     "scene_index": 9,
@@ -304,6 +314,7 @@
   },
   "10": {
     "name": "EmptyRoot",
+    "fullname": "EmptyRoot",
     "base_name": "EmptyRoot",
     "type": "EMPTY",
     "scene_index": 10,

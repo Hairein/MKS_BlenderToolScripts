@@ -5,11 +5,11 @@ This script exports the hierarchical scene definition in a JSON format for parsi
 
 by Micah Koleoso Software, 2020
 
-[www.micahkoleoso.de](http://www.micahkoleoso.de)
+[www.micahkoleososoftware.com](http://www.micahkoleososoftware.com)
 
 
 
-For bug reports, fixes, change or feature requests, please email [contact@micahkoleoso.de](mailto:contact@micahkoleoso.de)
+For bug reports, fixes, change or feature requests, please email [micah@micahkoleososoftware.com](mailto:micah@micahkoleososoftware.com)
 
 and please add "Blender JSON Exporter" in the header to speed up me reading the mail.
 
@@ -202,10 +202,19 @@ and please add "Blender JSON Exporter" in the header to speed up me reading the 
     "version" = [Text with the exporter version, given as ##Main Number##.##Sub Number## e.g. "1.1"]
 
 
-## Tested on Blender v2.83.2/3 LTS
-
+## Tested 
+- Blender v4.3.0
 
 ## Versions
+
+v1.2
+- Export full name attribute
+- Export scene custom properties where available
+    See scene in file room.blend for an example
+- Export scene object properties where available
+    Not supported properties: Data-Block
+    See Object "SphereRed" in file room.blend for an example
+- Added object tags where available
 
 v1.1 
 - Bugfixed SUN LIGHT angle radians and degrees export

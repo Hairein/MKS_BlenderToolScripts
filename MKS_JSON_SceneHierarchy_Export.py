@@ -30,7 +30,7 @@ def write_json_object(f, empties, meshes, lights, light_details, cams, cam_detai
     exporter_object = {}
 
     exporter_object["name"]= "MKS Blender JSON Exporter"
-    exporter_object["version"]= "1.1"
+    exporter_object["version"]= "1.2"
 
     json_object["exporter"] = exporter_object
 
@@ -85,6 +85,7 @@ def write_json_object(f, empties, meshes, lights, light_details, cams, cam_detai
         json_sub_object = {}
         
         json_sub_object["name"] = scene_object.name
+        json_sub_object["full_name"] = scene_object.name_full
         
         split_name = scene_object.name.split(".")
         if len(split_name) >= 1:
@@ -137,6 +138,11 @@ def write_json_object(f, empties, meshes, lights, light_details, cams, cam_detai
         # parent scene index
         parent_index = find_object_index(scene_object.parent)     
         json_sub_object["parent_index"] = parent_index
+        
+        # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        # custom properties if available
+        #properties = scene_object.
+        # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         
         # light details
         if scene_object.type == 'LIGHT' and light_details:

@@ -1,7 +1,7 @@
 {
   "exporter": {
     "exporter": "MKS Blender JSON Exporter",
-    "exporter_version": "1.1"
+    "exporter_version": "1.2"
   },
   "scene": {
     "active_camera": "Camera",
