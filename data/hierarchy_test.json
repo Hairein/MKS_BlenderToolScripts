@@ -1,9 +1,15 @@
 {
   "exporter": {
-    "exporter": "MKS Blender JSON Exporter",
-    "exporter_version": "1.1"
+    "name": "MKS Blender JSON Exporter",
+    "version": "1.2"
   },
   "scene": {
+    "name": "Scene",
+    "id_type": "SCENE",
+    "full_name": "Scene",
+    "base_name": "Scene",
+    "session_uid": 1433,
+    "tag": false,
     "active_camera": "Camera",
     "gravity": {
       "x": 0.0,
@@ -13,12 +19,14 @@
     "use_gravity": "True"
   },
   "0": {
+    "id_type": "OBJECT",
+    "tag": false,
     "name": "Cube1",
+    "full_name": "Cube1",
     "base_name": "Cube1",
     "type": "MESH",
     "scene_index": 0,
-    "visibility": "True",
-    "collider": "False",
+    "visibility": true,
     "location": {
       "x": 0.0,
       "y": 1.0,
@@ -42,12 +50,14 @@
     "parent_index": -1
   },
   "1": {
+    "id_type": "OBJECT",
+    "tag": false,
     "name": "Light",
+    "full_name": "Light",
     "base_name": "Light",
     "type": "LIGHT",
     "scene_index": 1,
-    "visibility": "True",
-    "collider": "False",
+    "visibility": true,
     "location": {
       "x": 2.0,
       "y": -3.0,
@@ -68,15 +78,29 @@
       "y": 1.0,
       "z": 1.0
     },
-    "parent_index": -1
+    "parent_index": -1,
+    "light_type": "POINT",
+    "light_color": {
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0
+    },
+    "cutoff_distance": 40.0,
+    "specular_factor": 1.0,
+    "energy": 1000.0,
+    "shadow_buffer_clip_start": 0.05000000074505806,
+    "shadow_soft_size": 0.10000000149011612,
+    "use_shadow": true
   },
   "2": {
+    "id_type": "OBJECT",
+    "tag": false,
     "name": "Camera",
+    "full_name": "Camera",
     "base_name": "Camera",
     "type": "CAMERA",
     "scene_index": 2,
-    "visibility": "True",
-    "collider": "False",
+    "visibility": true,
     "location": {
       "x": 10.08509635925293,
       "y": -7.804760932922363,
@@ -97,15 +121,41 @@
       "y": 1.0,
       "z": 1.0
     },
-    "parent_index": -1
+    "parent_index": -1,
+    "camera_type": "PERSP",
+    "angle_radians": 0.6911112070083618,
+    "angle_degrees": 39.597755335771296,
+    "angle_x_radians": 0.6911112070083618,
+    "angle_x_degrees": 39.597755335771296,
+    "angle_y_radians": 0.4710899591445923,
+    "angle_y_degrees": 26.99146642997552,
+    "clip_end": 100.0,
+    "clip_start": 0.10000000149011612,
+    "display_size": 1.0,
+    "dof_aperture_blades": 0,
+    "dof_aperture_fstop": 2.799999952316284,
+    "dof_aperture_ratio": 1.0,
+    "dof_aperture_rotation": 0.0,
+    "dof_focus_distance": 10.0,
+    "dof_use_dof": false,
+    "lens": 50.0,
+    "lens_unit": "MILLIMETERS",
+    "ortho_scale": 7.314285755157471,
+    "sensor_fit": "AUTO",
+    "sensor_height": 24.0,
+    "sensor_width": 36.0,
+    "shift_x": 0.0,
+    "shift_y": 0.0
   },
   "3": {
+    "id_type": "OBJECT",
+    "tag": false,
     "name": "Cube2",
+    "full_name": "Cube2",
     "base_name": "Cube2",
     "type": "MESH",
     "scene_index": 3,
-    "visibility": "True",
-    "collider": "False",
+    "visibility": true,
     "location": {
       "x": 2.0,
       "y": 1.0,

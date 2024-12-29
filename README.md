@@ -3,7 +3,7 @@
 This script exports the hierarchical scene definition in a JSON format for parsing in other applications and tools.
 
 
-by Micah Koleoso Software, 2020
+by Micah Koleoso Software, 2020, 2025
 
 [www.micahkoleososoftware.com](http://www.micahkoleososoftware.com)
 
@@ -21,11 +21,34 @@ and please add "Blender JSON Exporter" in the header to speed up me reading the 
 
     "name" = [Text with name as shown in Blender]
 
+    "full_name" = [Text with name and postfix (aaa.bbb) as shown in Blender]
+
+    "base_name" = [Text with name without postfix as shown in Blender]
+
     "type" = ['EMPTY'|'MESH'|'LIGHT'|'CAMERA']
+
+    "id_type" = ['SCENE'|'OBJECT' only based on the type parsed above in type]
+
+    "tag" = ['True'|'False']
 
     "visibility" = ['True'|'False']
 
-    "collider" = ['True'|'False']
+    "collision_settings" = [Collision settings where use is set to true]
+        - absorption = [float]
+        - cloth_friction = [float]
+        - damping = [float]
+        - damping_factor = [float]
+        - damping_random = [float]
+        - friction_factor = [float]
+        - friction_random = [float]
+        - permeability = [float]
+        - stickiness = [float]
+        - thickness_inner = [float]
+        - thickness_outer = [float]
+        - use [= 'True'|'False']
+        - use_culling = 'True'|'False']
+        - use_normal = 'True'|'False']
+        - use_particle_kill = 'True'|'False']
 
     "location" = (x,y,z) [floats]
 
@@ -167,12 +190,14 @@ and please add "Blender JSON Exporter" in the header to speed up me reading the 
 
 
 ### Scene
-
+     
     "active_camera" = [Text with name of active camera]
 
     scene_gravity = [3 floats, x y z]
 
     scene_object["use_gravity"] = = ['True'|'False']
+
+    "session_uid" = [Integer showing a unique session ID]
 
 
 ### Scene Statistics
@@ -203,18 +228,17 @@ and please add "Blender JSON Exporter" in the header to speed up me reading the 
 
 
 ## Tested 
-- Blender v4.3.0
+- Blender v4.3.2
 
 ## Versions
 
 v1.2
-- Export full name attribute
-- Export scene custom properties where available
-    See scene in file room.blend for an example
-- Export scene object properties where available
-    Not supported properties: Data-Block
-    See Object "SphereRed" in file room.blend for an example
-- Added object tags where available
+- Export full name attribute for scene and all objects
+- Export scene, objects id_type attribute
+- Export object tag where available
+- Changed boolean values from string type to booleans
+- Export detailed collision settings
+- Various small bugfixes
 
 v1.1 
 - Bugfixed SUN LIGHT angle radians and degrees export
