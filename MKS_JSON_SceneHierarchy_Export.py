@@ -21,7 +21,7 @@ def find_object_index(object):
         
     return find_index
 
-def write_json_object(f, empties, meshes, lights, light_details, cams, cam_details):
+def write_json_object(f, scene_details, collision_details, empties, meshes, lights, light_details, cams, cam_details):
     scene = bpy.context.scene
 
     json_object =  {}
@@ -30,22 +30,34 @@ def write_json_object(f, empties, meshes, lights, light_details, cams, cam_detai
     exporter_object = {}
 
     exporter_object["name"]= "MKS Blender JSON Exporter"
-    exporter_object["version"]= "1.1"
+    exporter_object["version"]= "1.2"
 
     json_object["exporter"] = exporter_object
 
     # scene
     scene_object = {}
 
-    scene_object["active_camera"]= scene.camera.name
+    # common scene attributes 
+    scene_object["name"] = scene.name
 
-    scene_gravity_object = {}
-    scene_gravity_object["x"] = scene.gravity.x
-    scene_gravity_object["y"] = scene.gravity.y
-    scene_gravity_object["z"] = scene.gravity.z
-    scene_object["gravity"]= scene_gravity_object
+    scene_object["id_type"] = scene.id_type
+    scene_object["full_name"] = scene.name_full
+    
+    split_name = scene.name.split(".")
+    if len(split_name) >= 1:
+        scene_object["base_name"] = split_name[0]
+        
+    if scene_details:
+        scene_object["session_uid"] = scene.session_uid
+        scene_object["tag"] = scene.tag
+        scene_object["active_camera"]= scene.camera.name
 
-    scene_object["use_gravity"] = str(scene.use_gravity) 
+        scene_gravity_object = {}
+        scene_gravity_object["x"] = scene.gravity.x
+        scene_gravity_object["y"] = scene.gravity.y
+        scene_gravity_object["z"] = scene.gravity.z
+        scene_object["gravity"]= scene_gravity_object
+        scene_object["use_gravity"] = str(scene.use_gravity) 
     
     # first save
     json_object["scene"] = scene_object
@@ -83,8 +95,12 @@ def write_json_object(f, empties, meshes, lights, light_details, cams, cam_detai
                 
         # common attributes
         json_sub_object = {}
-        
+
+        json_sub_object["id_type"] = scene_object.id_type
+        json_sub_object["tag"] = scene_object.tag
+                
         json_sub_object["name"] = scene_object.name
+        json_sub_object["full_name"] = scene_object.name_full
         
         split_name = scene_object.name.split(".")
         if len(split_name) >= 1:
@@ -104,12 +120,27 @@ def write_json_object(f, empties, meshes, lights, light_details, cams, cam_detai
         
         json_sub_object["scene_index"] = index
 
-        json_sub_object["visibility"] = str(not scene_object.hide_render)
+        json_sub_object["visibility"] = not scene_object.hide_render
         
-        json_sub_object["collider"] = "False"     
-        if scene_object.collision:
-            json_sub_object["collider"] = str(scene_object.collision.use)
-        
+        if hasattr(scene_object, 'collision') and collision_details and scene_object.collision != None and scene_object.collision.use:  
+            collision_settings = {}
+            collision_settings["absorption"] = scene_object.collision.absorption
+            collision_settings["cloth_friction"] = scene_object.collision.cloth_friction
+            collision_settings["damping"] = scene_object.collision.damping
+            collision_settings["damping_factor"] = scene_object.collision.damping_factor
+            collision_settings["damping_random"] = scene_object.collision.damping_random
+            collision_settings["friction_factor"] = scene_object.collision.friction_factor
+            collision_settings["friction_random"] = scene_object.collision.friction_random
+            collision_settings["permeability"] = scene_object.collision.permeability
+            collision_settings["stickiness"] = scene_object.collision.stickiness
+            collision_settings["thickness_inner"] = scene_object.collision.thickness_inner
+            collision_settings["thickness_outer"] = scene_object.collision.thickness_outer
+            collision_settings["use"] = scene_object.collision.use
+            collision_settings["use_culling"] = scene_object.collision.use_culling
+            collision_settings["use_normal"] = scene_object.collision.use_normal
+            collision_settings["use_particle_kill"] = scene_object.collision.use_particle_kill
+            json_sub_object["collision_settings"] = collision_settings
+            
         location = {}
         location["x"] = scene_object.location.x
         location["y"] = scene_object.location.y
@@ -138,6 +169,11 @@ def write_json_object(f, empties, meshes, lights, light_details, cams, cam_detai
         parent_index = find_object_index(scene_object.parent)     
         json_sub_object["parent_index"] = parent_index
         
+        # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        # custom properties if available
+        #properties = scene_object.
+        # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        
         # light details
         if scene_object.type == 'LIGHT' and light_details:
             json_sub_object["light_type"] = scene_object.data.type
@@ -150,34 +186,64 @@ def write_json_object(f, empties, meshes, lights, light_details, cams, cam_detai
         
             json_sub_object["cutoff_distance"] = scene_object.data.cutoff_distance
             
-            json_sub_object["distance_half_intensity"] = scene_object.data.distance
+            if hasattr(scene_object.data, 'distance'):
+                json_sub_object["distance_half_intensity"] = scene_object.data.distance
             
             json_sub_object["specular_factor"] = scene_object.data.specular_factor
    
-            json_sub_object["constant_coefficient"] = scene_object.data.constant_coefficient
-            json_sub_object["contact_shadow_bias"] = scene_object.data.contact_shadow_bias
-            json_sub_object["contact_shadow_distance"] = scene_object.data.contact_shadow_distance
-            json_sub_object["contact_shadow_thickness"] = scene_object.data.constant_coefficient
+            if hasattr(scene_object.data, 'constant_coefficient'):
+                json_sub_object["constant_coefficient"] = scene_object.data.constant_coefficient
+                
+            if hasattr(scene_object.data, 'contact_shadow_bias'):
+                json_sub_object["contact_shadow_bias"] = scene_object.data.contact_shadow_bias
+                
+            if hasattr(scene_object.data, 'contact_shadow_distance'):
+                json_sub_object["contact_shadow_distance"] = scene_object.data.contact_shadow_distance
+                
+            if hasattr(scene_object.data, 'contact_shadow_thickness'):
+                json_sub_object["contact_shadow_thickness"] = scene_object.data.contact_shadow_thickness
+                
             json_sub_object["energy"] = scene_object.data.energy
-            json_sub_object["falloff_type"] = scene_object.data.falloff_type
-            json_sub_object["linear_attenuation"] = scene_object.data.linear_attenuation
-            json_sub_object["linear_coefficient"] = scene_object.data.linear_coefficient
-            json_sub_object["quadratic_attenuation"] = scene_object.data.quadratic_attenuation
-            json_sub_object["quadratic_coefficient"] = scene_object.data.quadratic_coefficient
-            json_sub_object["shadow_buffer_bias"] = scene_object.data.shadow_buffer_bias
+            
+            if hasattr(scene_object.data, 'falloff_type'):
+                json_sub_object["falloff_type"] = scene_object.data.falloff_type
+                
+            if hasattr(scene_object.data, 'linear_attenuation'):
+                json_sub_object["linear_attenuation"] = scene_object.data.linear_attenuation
+                
+            if hasattr(scene_object.data, 'linear_coefficient'):
+                json_sub_object["linear_coefficient"] = scene_object.data.linear_coefficient
+                
+            if hasattr(scene_object.data, 'quadratic_attenuation'):
+                json_sub_object["quadratic_attenuation"] = scene_object.data.quadratic_attenuation
+                
+            if hasattr(scene_object.data, 'quadratic_coefficient'):
+                json_sub_object["quadratic_coefficient"] = scene_object.data.quadratic_coefficient
+                
+            if hasattr(scene_object.data, 'shadow_buffer_bias'):
+                json_sub_object["shadow_buffer_bias"] = scene_object.data.shadow_buffer_bias
+                
             json_sub_object["shadow_buffer_clip_start"] = scene_object.data.shadow_buffer_clip_start
-            json_sub_object["shadow_buffer_samples"] = scene_object.data.shadow_buffer_samples
-            json_sub_object["shadow_buffer_size"] = scene_object.data.shadow_buffer_size
+            
+            if hasattr(scene_object.data, 'shadow_buffer_samples'):
+                json_sub_object["shadow_buffer_samples"] = scene_object.data.shadow_buffer_samples
+            
+            if hasattr(scene_object.data, 'shadow_buffer_size'):
+                json_sub_object["shadow_buffer_size"] = scene_object.data.shadow_buffer_size
                         
-            shadow_color = {}
-            shadow_color["r"] = scene_object.data.shadow_color[0]
-            shadow_color["g"] = scene_object.data.shadow_color[1]
-            shadow_color["b"] = scene_object.data.shadow_color[2]
-            json_sub_object["shadow_color"] = shadow_color
+            if hasattr(scene_object.data, 'shadow_color'):                        
+                shadow_color = {}
+                shadow_color["r"] = scene_object.data.shadow_color[0]
+                shadow_color["g"] = scene_object.data.shadow_color[1]
+                shadow_color["b"] = scene_object.data.shadow_color[2]
+                json_sub_object["shadow_color"] = shadow_color
             
             json_sub_object["shadow_soft_size"] = scene_object.data.shadow_soft_size
-            json_sub_object["use_contact_shadow"] = str(scene_object.data.use_contact_shadow)
-            json_sub_object["use_shadow"] = str(scene_object.data.use_shadow)
+            
+            if hasattr(scene_object.data, 'use_contact_shadow'):                        
+                json_sub_object["use_contact_shadow"] = scene_object.data.use_contact_shadow
+                
+            json_sub_object["use_shadow"] = scene_object.data.use_shadow
         
             if scene_object.data.type == 'POINT':
                 pass
@@ -192,10 +258,10 @@ def write_json_object(f, empties, meshes, lights, light_details, cams, cam_detai
                 json_sub_object["shadow_cascade_max_distance"] = scene_object.data.shadow_cascade_max_distance
                 
             elif scene_object.data.type == 'SPOT':
-                json_sub_object["show_cone"] = str(scene_object.data.show_cone)
+                json_sub_object["show_cone"] = scene_object.data.show_cone
                 json_sub_object["spot_blend"] = scene_object.data.spot_blend
                 json_sub_object["spot_size"] = scene_object.data.spot_size
-                json_sub_object["use_square"] = str(scene_object.data.use_square)
+                json_sub_object["use_square"] = scene_object.data.use_square
 
             elif scene_object.data.type == 'AREA':
                 json_sub_object["shape"] = scene_object.data.shape
@@ -224,7 +290,7 @@ def write_json_object(f, empties, meshes, lights, light_details, cams, cam_detai
                 json_sub_object["dof_focus_distance"] = scene_object.data.dof.focus_distance
                 if scene_object.data.dof.focus_object:
                     json_sub_object["dof_focus_object"] = scene_object.data.dof.focus_object.name
-                json_sub_object["dof_use_dof"] = str(scene_object.data.dof.use_dof)
+                json_sub_object["dof_use_dof"] = scene_object.data.dof.use_dof
             json_sub_object["lens"] = scene_object.data.lens
             json_sub_object["lens_unit"] = scene_object.data.lens_unit
             json_sub_object["ortho_scale"] = scene_object.data.ortho_scale
@@ -265,11 +331,11 @@ def write_json_object(f, empties, meshes, lights, light_details, cams, cam_detai
     f.write(json.dumps(json_object, indent=2))
     f.write("\n")
     
-def write_some_data(context, filepath, empties, meshes, lights, light_details, cameras, camera_details):
+def write_some_data(context, filepath, scene_details, collision_details, empties, meshes, lights, light_details, cameras, camera_details):
     print("running MKS JSON Scene export...")
     f = open(filepath, 'w', encoding='utf-8')
 
-    write_json_object(f, empties, meshes, lights, light_details, cameras, camera_details)
+    write_json_object(f, scene_details, collision_details, empties, meshes, lights, light_details, cameras, camera_details)
 
     f.close()
 
@@ -297,6 +363,18 @@ class ExportJSONScene(Operator, ExportHelper):
         maxlen=255,  # Max internal buffer length, longer would be clamped.
     )
     
+    scene_details_setting: BoolProperty(
+        name="Export Scene Details",
+        description="Export scene details",
+        default=True,
+    )
+    
+    collision_details_setting: BoolProperty(
+        name="Export Collision Details",
+        description="Export collision details",
+        default=False,
+    )
+
     empties_setting: BoolProperty(
         name="Export Empties",
         description="Export empty attributes",
@@ -335,6 +413,8 @@ class ExportJSONScene(Operator, ExportHelper):
 
     def execute(self, context):
         return write_some_data(context, self.filepath, 
+            self.scene_details_setting,
+            self.collision_details_setting,
             self.empties_setting,
             self.meshes_setting,
             self.lights_setting,

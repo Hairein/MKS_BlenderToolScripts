@@ -1,9 +1,15 @@
 {
   "exporter": {
-    "exporter": "MKS Blender JSON Exporter",
-    "exporter_version": "1.1"
+    "name": "MKS Blender JSON Exporter",
+    "version": "1.2"
   },
   "scene": {
+    "name": "Scene",
+    "id_type": "SCENE",
+    "full_name": "Scene",
+    "base_name": "Scene",
+    "session_uid": 1310,
+    "tag": false,
     "active_camera": "Camera",
     "gravity": {
       "x": 0.0,
@@ -13,12 +19,31 @@
     "use_gravity": "True"
   },
   "0": {
+    "id_type": "OBJECT",
+    "tag": false,
     "name": "Cube",
+    "full_name": "Cube",
     "base_name": "Cube",
     "type": "MESH",
     "scene_index": 0,
-    "visibility": "True",
-    "collider": "True",
+    "visibility": true,
+    "collision_settings": {
+      "absorption": 0.0,
+      "cloth_friction": 5.0,
+      "damping": 0.10000000149011612,
+      "damping_factor": 0.0,
+      "damping_random": 0.0,
+      "friction_factor": 0.0,
+      "friction_random": 0.0,
+      "permeability": 0.0,
+      "stickiness": 0.0,
+      "thickness_inner": 0.20000000298023224,
+      "thickness_outer": 0.019999999552965164,
+      "use": true,
+      "use_culling": false,
+      "use_normal": false,
+      "use_particle_kill": false
+    },
     "location": {
       "x": 0.0,
       "y": 0.0,
@@ -42,12 +67,14 @@
     "parent_index": -1
   },
   "1": {
+    "id_type": "OBJECT",
+    "tag": false,
     "name": "Light",
+    "full_name": "Light",
     "base_name": "Light",
     "type": "LIGHT",
     "scene_index": 1,
-    "visibility": "True",
-    "collider": "False",
+    "visibility": true,
     "location": {
       "x": 4.076245307922363,
       "y": 1.0054539442062378,
@@ -68,15 +95,29 @@
       "y": 1.0,
       "z": 1.0
     },
-    "parent_index": -1
+    "parent_index": -1,
+    "light_type": "POINT",
+    "light_color": {
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0
+    },
+    "cutoff_distance": 40.0,
+    "specular_factor": 1.0,
+    "energy": 1000.0,
+    "shadow_buffer_clip_start": 0.05000000074505806,
+    "shadow_soft_size": 0.10000000149011612,
+    "use_shadow": true
   },
   "2": {
+    "id_type": "OBJECT",
+    "tag": false,
     "name": "Camera",
+    "full_name": "Camera",
     "base_name": "Camera",
     "type": "CAMERA",
     "scene_index": 2,
-    "visibility": "True",
-    "collider": "False",
+    "visibility": true,
     "location": {
       "x": 7.358891487121582,
       "y": -6.925790786743164,
@@ -97,15 +138,41 @@
       "y": 1.0,
       "z": 1.0
     },
-    "parent_index": -1
+    "parent_index": -1,
+    "camera_type": "PERSP",
+    "angle_radians": 0.6911112070083618,
+    "angle_degrees": 39.597755335771296,
+    "angle_x_radians": 0.6911112070083618,
+    "angle_x_degrees": 39.597755335771296,
+    "angle_y_radians": 0.4710899591445923,
+    "angle_y_degrees": 26.99146642997552,
+    "clip_end": 100.0,
+    "clip_start": 0.10000000149011612,
+    "display_size": 1.0,
+    "dof_aperture_blades": 0,
+    "dof_aperture_fstop": 2.799999952316284,
+    "dof_aperture_ratio": 1.0,
+    "dof_aperture_rotation": 0.0,
+    "dof_focus_distance": 10.0,
+    "dof_use_dof": false,
+    "lens": 50.0,
+    "lens_unit": "MILLIMETERS",
+    "ortho_scale": 7.314285755157471,
+    "sensor_fit": "AUTO",
+    "sensor_height": 24.0,
+    "sensor_width": 36.0,
+    "shift_x": 0.0,
+    "shift_y": 0.0
   },
   "3": {
+    "id_type": "OBJECT",
+    "tag": false,
     "name": "Cube.Child",
+    "full_name": "Cube.Child",
     "base_name": "Cube",
     "type": "MESH",
     "scene_index": 3,
-    "visibility": "True",
-    "collider": "False",
+    "visibility": true,
     "location": {
       "x": 0.0,
       "y": 5.0,
@@ -129,12 +196,14 @@
     "parent_index": 4
   },
   "4": {
+    "id_type": "OBJECT",
+    "tag": false,
     "name": "Cube.Parent",
+    "full_name": "Cube.Parent",
     "base_name": "Cube",
     "type": "MESH",
     "scene_index": 4,
-    "visibility": "True",
-    "collider": "False",
+    "visibility": true,
     "location": {
       "x": 0.0,
       "y": 6.0,
